@@ -1,0 +1,177 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2019-12-31T07:54:45Z",
+    "title": "hello-world"
+  },
+  "host": "56wwc6gslj.execute-api.us-east-2.amazonaws.com",
+  "basePath": "/test",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/math": {
+      "options": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/math/{operation}": {
+      "post": {
+        "description": "Performs add, subtract, multiply and divide operations on the given numbers.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "operation",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "CalculatorValidatorModel",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CalculatorValidatorModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/message": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        }
+      }
+    },
+    "/message/{name}": {
+      "get": {
+        "description": "Greets in the chosen language.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CalculatorValidatorModel": {
+      "type": "object",
+      "required": [
+        "num1",
+        "num2"
+      ],
+      "properties": {
+        "num1": {
+          "type": "number"
+        },
+        "num2": {
+          "type": "number"
+        }
+      },
+      "title": "Calculator Validator Model"
+    },
+    "Empty": {
+      "type": "object",
+      "title": "Empty Schema"
+    }
+  }
+}
