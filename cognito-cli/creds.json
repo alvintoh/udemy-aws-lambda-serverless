@@ -1,0 +1,9 @@
+{
+  "UserPoolId": "us-east-2_Tm5VbwcZq",
+  "ClientId": "5ta5aalg7qtri8g9ipivqjtqs6",
+  "AuthFlow": "ADMIN_USER_PASSWORD_AUTH",
+  "AuthParameters": {
+    "USERNAME": "alvin",
+    "PASSWORD": "password"
+  }
+}
