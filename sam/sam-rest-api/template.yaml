@@ -4,7 +4,7 @@ Description: REST API using SAM
 
 Globals:
   Function:
-    Runtime: nodejs8.10
+    Runtime: nodejs12.x
     Environment:
       Variables:
         TABLE_NAME: !Ref Table
@@ -26,7 +26,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: get.handler
-      Policies: AmazonDynamodbReadOnlyAccess
+      Policies: AmazonDynamoDBReadOnlyAccess
       Events:
         GetUser:
           Type: Api
@@ -44,7 +44,7 @@ Resources:
           Type: Api
           Properties:
             Path: /user/{userid}
-            Method: put
+            Method: post
 
   DeleteUser:
     Type: AWS::Serverless::Function

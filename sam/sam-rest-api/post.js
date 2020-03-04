@@ -1,12 +1,12 @@
 const AWS = require("aws-sdk");
-AWS.config({ region: "us-east-2" });
+AWS.config.update({ region: "us-east-2" });
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 const tableName = process.env.TABLE_NAME;
 
 exports.handler = async event => {
-  let userid = event.pathParameter.userid;
+  let userid = event.pathParameters.userid;
   let { firstName, lastName, email, website } = JSON.parse(event.body);
 
   let item = {

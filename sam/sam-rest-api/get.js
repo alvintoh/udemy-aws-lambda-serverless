@@ -1,5 +1,5 @@
 const AWS = require("aws-sdk");
-AWS.config({ region: "us-east-2" });
+AWS.config.update({ region: "us-east-2" });
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
@@ -22,6 +22,11 @@ exports.handler = async event => {
       body: JSON.stringify(data.Item)
     };
   } else {
-    throw new Error("User not found");
+    return {
+      statusCode: 404,
+      body: JSON.stringify({
+        message: "User not found"
+      })
+    };
   }
 };
